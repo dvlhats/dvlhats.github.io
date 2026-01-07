@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>DVLHATS | NFC Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .brand {
+      font-size: 32px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .oveja {
+      font-size: 16px;
+      letter-spacing: 4px;
+      opacity: 0.75;
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+    .code {
+      color: #00ff99;
+      font-size: 28px;
+      margin: 25px 0;
+      font-weight: bold;
+    }
+    .warning {
+      font-size: 13px;
+      opacity: 0.6;
+      margin-top: 30px;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 22px;
+      background: #111;
+      border: 1px solid #00ff99;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .buttons a:hover {
+      background: #00ff99;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="brand">DVLHATS</div>
+  <div class="oveja">OVEJA NEGRA</div>
+
+  <p>
+    Este producto contiene un tag NFC oficial de DVLHATS.<br>
+    Si llegaste aquí tocando el tag, tu gorra es auténtica.
+  </p>
+
+  <div id="result"></div>
+
+  <div class="buttons">
+    <p>Síguenos y sé parte de la familia DVLHATS</p>
+
+    <a href="https://www.tiktok.com/@dvlhats3" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/dvlhats" target="_blank">Instagram</a>
+    <a href="https://dvlhats.com" target="_blank">Website</a>
+  </div>
+
+  <p class="warning">
+    ⚠️ Si este código aparece en múltiples productos,<br>
+    la autenticidad puede estar comprometida.
+  </p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (code) {
+      document.getElementById("result").innerHTML =
+        "<div class='code'>✔ CÓDIGO: " + code + "</div>";
+    } else {
+      document.getElementById("result").innerHTML =
+        "<div style='color:red;'>⚠ Código no detectado</div>";
+    }
+  </script>
+
+</body>
+</html>
